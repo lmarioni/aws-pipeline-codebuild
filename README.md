@@ -20,7 +20,9 @@ Creo proyecto nuevo con las siguientes configuraciones:
 - Privilegiado: NO marcar esta opcioón.
 - nombre de rol: el que quieras.
 - En Especificacion de compilación poner "Insertar comandos de compilación", apretar en el botón de "cambiar el editor" y poner:
+
 ver archivo buildspect.yml
+
 Acordarse de poner el nombre del bucket s3 donde se va a tirar el codigo.
 
 
