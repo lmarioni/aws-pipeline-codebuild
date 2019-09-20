@@ -1,0 +1,43 @@
+version: 0.2
+
+#env:
+  #variables:
+     # key: "value"
+     # key: "value"
+  #parameter-store:
+     # key: "value"
+     # key: "value"
+  #git-credential-helper: yes
+
+phases:
+  install:
+    #Si utiliza la imagen estándar de Ubuntu 2.0 o posterior, debe especificar las versiones del tiempo de ejecución.
+    #Si especifica las versiones del tiempo de ejecución y utiliza una imagen que no sea la estándar de Ubuntu 2.0, se produce un error en la compilación.
+    runtime-versions:
+       nodejs: 10
+      # name: version
+    #commands:
+      # - command
+      # - command
+  pre_build:
+    commands:
+       - echo INSTALANDO NPM dependencies...
+       - npm install
+  build:
+    commands:
+        - echo haciendo el build
+        - npm run build
+  post_build:
+    commands:
+       - aws s3 cp --recursive --acl public-read ./build s3://NOMBRE_DEL_BUCKET/
+      # - command
+#artifacts:
+  #files:
+    # - '**/*'
+    # - location
+  #name: $(date +%Y-%m-%d)
+  #discard-paths: yes
+  #base-directory: build
+#cache:
+  #paths:
+    # - paths
