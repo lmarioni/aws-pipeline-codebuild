@@ -1,16 +1,25 @@
 # aws-pipeline-codebuild
 
+Este tutorial permite hacer un deploy desde github a AWS S3.
+Sirve para una App en react (usé create-react-app).
+Usa:
+- CodePipeline: para traer el codigo desde github.
+- CodeBuild: para hacer el build y deployarlo en el bucket de s3.
 
-1- Crear pipeline de codigo.
+NO USO: codepipeline para tirar el codigo en s3 (lo soluciono con Codebuild).
+NO SIRVE: si se usa server side rendering.
+
+
+1- Crear pipeline de codigo (Desde consola de AWS).
 Almacén de artefactos: "Ubicación predeterminadda". 
 Clave de cifrado: "Predeterminada por AWS"
 
 2- Elegir Github o el que sea. El repositorio y la rama, yo puse master.
-Usar webhooks de Github
+Usar webhooks de Github. 
 
 3- Proveedor de compilación:
-AWS Codebuild
-Creo proyecto nuevo con las siguientes configuraciones:
+AWS Codebuild.
+Creo un proyecto nuevo (de Codebuild) con las siguientes configuraciones:
 
 - Imagen del entorno: imagen administrada
 - sistema operativo: Amazon Linux 2
